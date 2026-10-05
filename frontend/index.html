@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DocLens AI Beta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="brand"><b>DOCLENS</b><span>AI / PDF ANALYZER</span></div>
+        <div id="state">SYSTEM READY</div>
+    </header>
+    <main id="landing">
+        <div class="tag">DOCUMENT INTELLIGENCE / BETA</div>
+        <h1>Read less.<br><i>Understand more.</i></h1>
+        <p class="lead">Upload PDFs, ask grounded questions, generate summaries, inspect sources, and compare documents.
+        </p><label id="drop" class="drop"><input id="file" type="file" accept=".pdf">
+            <div class="up">↑</div><b>Drop PDF here</b><small>or click to browse</small>
+        </label>
+        <div class="chips"><span>PAGE CITATIONS</span><span>RAG READY</span><span>LOCAL FIRST</span></div>
+    </main>
+    <main id="app" class="hidden">
+        <aside><button id="new">+ New PDF</button>
+            <h3>DOCUMENTS</h3>
+            <div id="docs"></div>
+            <div class="sideNote">Beta build<br>PyMuPDF · FastAPI · TF-IDF · Ollama</div>
+        </aside>
+        <section class="panel">
+            <div class="top">
+                <div>
+                    <div class="tag">ACTIVE DOCUMENT</div>
+                    <h2 id="title">—</h2><span id="meta">—</span>
+                </div>
+                <div class="stats"><span id="words">0 words</span><span id="pages">0 pages</span><span id="chunks">0
+                        chunks</span></div>
+            </div>
+            <nav><button class="tab active" data-tab="chat">Q&A</button><button class="tab"
+                    data-tab="summary">SUMMARY</button><button class="tab" data-tab="compare">COMPARE</button></nav>
+            <div id="chat" class="view">
+                <div id="messages" class="messages">
+                    <div class="empty"><strong>Document indexed.</strong><span>Ask a factual question about its
+                            contents.</span></div>
+                </div>
+                <form id="ask"><input id="q" placeholder="Ask about this PDF…"><button>ASK</button></form>
+            </div>
+            <div id="summary" class="view hidden"><button id="sum">GENERATE SUMMARY</button>
+                <article id="sumText"></article>
+            </div>
+            <div id="compare" class="view hidden">
+                <div class="comparePick" id="pick"></div><input id="cq" placeholder="What should be compared?"><button
+                    id="cmp">COMPARE</button>
+                <article id="cmpText"></article>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>
